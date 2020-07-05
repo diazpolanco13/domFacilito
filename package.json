@@ -1,0 +1,24 @@
+{
+  "name": "domjs",
+  "version": "1.0.0",
+  "description": "Curso de DOM de codigofacilito",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "DOM",
+    "Javascript",
+    "npm"
+  ],
+  "author": "Carlos Diaz <diazpolanco13@mail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diazpolanco13/domFacilito.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diazpolanco13/domFacilito/issues"
+  },
+  "homepage": "https://github.com/diazpolanco13/domFacilito#readme"
+}
