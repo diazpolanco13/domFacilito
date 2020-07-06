@@ -1,0 +1,14 @@
+/* .display-2, h2 {
+    color: brown;
+} */
+.btn {
+    background-color: yellowgreen;
+    color: white;
+}
+.btn-peligro {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 55px;
+    margin: 1px;
+}

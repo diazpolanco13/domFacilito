@@ -1,21 +1,65 @@
 const title = document.getElementById('title');
-title.innerHTML = "Super Titulo";
+//title.innerHTML = "Super Titulo";
 
 const description = document.getElementById('description');
-description.innerHTML = "Listado de cursos";
+// description.innerHTML = "Listado de cursos";
 
-//const items = document.getElementsByClassName('list-group-item');
-// const items = document.getElementsByTagName('li')
-// for (let i = 0; i < items.length; i++) {
-//     if (i % 2 == 0) {
-//         let curso = items[i];
-//         curso.style.background = '#f2f2f2';
-//     }
-// }
 
-const items = document.querySelectorAll('li:nth-child(odd)');
-for (var i = 0; i < items.length; i++) {
-  let cursos = items[i];
-  cursos.style.background = '#f2f2f2';
-}
 
+// const boton = document.querySelector('.btn');
+
+// boton.addEventListener('click',function(e){
+//   if (title.style.display != 'none') {
+//     title.style.display = 'none';
+//     description.style.display = 'none';
+//     e.target.textContent = 'Mostar'
+//     console.log(e)
+//   } else {
+//     title.style.display = 'block';
+//     description.style.display = 'block';
+//     e.target.textContent = 'Ocultar'
+
+//     console.log(e)
+//   }
+// });
+
+// boton.addEventListener('mouseenter', function(){
+//   this.className = 'btn-peligro';
+//   console.log(boton)
+// })
+
+// boton.addEventListener('mouseout', function(){
+//   this.className = 'btn';
+// })
+
+// const input = document.getElementById('description-form');
+
+// input.addEventListener('keydown', function(e){
+//   console.log(`Tecla presionada ${e.key} y su codigo es ${e.keyCode}`);
+// })
+
+const form = document.getElementById('course-form');
+console.log(form)
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  let description = document.getElementById('description-form').value;
+
+  console.log(title);
+  console.log(description);
+});
+
+//con un checkbox
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', function(){
+  console.log('Cambio de valor')
+});
+
+// con un formulario
+let title_form = document.getElementById('title-form');
+
+title_form.addEventListener('change', function(){
+  console.log('Cambio de valor');
+});
