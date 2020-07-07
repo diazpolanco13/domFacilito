@@ -1,7 +1,7 @@
-const title = document.getElementById('title');
+// const title = document.getElementById('title');
+// const description = document.getElementById('description'); 
 //title.innerHTML = "Super Titulo";
 
-const description = document.getElementById('description');
 // description.innerHTML = "Listado de cursos";
 
 
@@ -38,28 +38,81 @@ const description = document.getElementById('description');
 //   console.log(`Tecla presionada ${e.key} y su codigo es ${e.keyCode}`);
 // })
 
-const form = document.getElementById('course-form');
-console.log(form)
 
+
+
+//con un checkbox
+// const checkbox = document.getElementById('checkbox');
+
+// checkbox.addEventListener('change', function(){
+//   console.log('Cambio de valor')
+// });
+
+// // con un formulario
+// let title_form = document.getElementById('title-form');
+
+// title_form.addEventListener('change', function(){
+//   console.log('Cambio de valor');
+// });
+
+
+
+const row = document.querySelector('.row');
+
+
+const form = document.getElementById('course-form');
 form.addEventListener('submit', function(e){
   e.preventDefault();
 
+  let title = document.getElementById('title-form').value;
   let description = document.getElementById('description-form').value;
-
-  console.log(title);
-  console.log(description);
+  
+  create_card(title, description);
 });
+      
 
-//con un checkbox
-const checkbox = document.getElementById('checkbox');
+    function create_card_by_innerHTML(title, description){
+      let html = `<div class="col-sm-6 col-md-4">\
+                    <div class="thumbnail">\
+                      <div class="caption">\
+                        <h3 id="title card"> ${title} </h3>\
+                        <p id="description_card"> ${description} </p>\
+                        <p><a href="#" class="btn btn-danger">Accion</a></p>\
+                      </div>\
+                    </div>\
+                  </div>`;
+  row.innerHTML += html;
+  };
 
-checkbox.addEventListener('change', function(){
-  console.log('Cambio de valor')
-});
+    function create_card(title, description) {
 
-// con un formulario
-let title_form = document.getElementById('title-form');
+      let div = document.createElement('div');
+      div.className = 'col-sm-6 col-md-4';
 
-title_form.addEventListener('change', function(){
-  console.log('Cambio de valor');
-});
+      let thumbnail = document.createElement('div');
+      thumbnail.className ='thumbnail';
+
+      let caption = document.createElement('div');
+      caption.className = 'caption';
+
+      let h3 = document.createElement('h3');
+      h3.textContent = 'title';
+
+      let p1 = document.createElement('p');
+      p1.textContent = 'description';
+
+      let p2 = document.createElement('p');
+      let a = document.createElement('a');
+      a.className = 'btn btn-danger';
+      a.textContent = 'Eliminar';
+
+      p2.appendChild(a);
+      caption.appendChild(h3);
+      caption.appendChild(p1);
+      caption.appendChild(p2);
+
+      thumbnail.appendChild(caption);
+      div.appendChild(thumbnail);
+
+      row.appendChild(div);
+    };
