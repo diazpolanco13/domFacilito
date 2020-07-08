@@ -71,6 +71,7 @@ form.addEventListener('submit', function(e){
 });
       
 
+//Metodo 1 paa agregar elementos al DOM
     function create_card_by_innerHTML(title, description){
       let html = `<div class="col-sm-6 col-md-4">\
                     <div class="thumbnail">\
@@ -84,7 +85,9 @@ form.addEventListener('submit', function(e){
   row.innerHTML += html;
   };
 
-    function create_card(title, description) {
+
+  //Metodo 2 para agregar elemtnos al DOM
+      function create_card (title, description) {
 
       let div = document.createElement('div');
       div.className = 'col-sm-6 col-md-4';
@@ -96,23 +99,42 @@ form.addEventListener('submit', function(e){
       caption.className = 'caption';
 
       let h3 = document.createElement('h3');
-      h3.textContent = 'title';
+      h3.textContent = title;
 
       let p1 = document.createElement('p');
-      p1.textContent = 'description';
+      p1.textContent = description;
 
       let p2 = document.createElement('p');
+      //etiqueta vacia
       let a = document.createElement('a');
       a.className = 'btn btn-danger';
       a.textContent = 'Eliminar';
 
+      p2.addEventListener('click', delete_card);
+
+
       p2.appendChild(a);
       caption.appendChild(h3);
-      caption.appendChild(p1);
-      caption.appendChild(p2);
+        caption.appendChild(p1);
+        caption.appendChild(p2);
 
       thumbnail.appendChild(caption);
       div.appendChild(thumbnail);
 
       row.appendChild(div);
     };
+
+    function delete_card(e) {
+
+      let ancestor = get_ancestor(e.target, 4);
+      row.removeChild(ancestor);
+
+    }
+
+    function get_ancestor(ancestor, level) {
+      if(level == 0) {
+        return ancestor;
+      }
+      level--;
+      return get_ancestor(ancestor.parentElement, level);
+    }
